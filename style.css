@@ -24,6 +24,13 @@ body {
   align-content: flex-start;
 }
 
+.world_wrapper_vertical {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
 .rectangle {
   position: relative;
   color: white;
