@@ -1,17 +1,21 @@
 // src/app.js
 
 import React from 'react';
-import { render } from 'react-dom';
-import { TodoList } from './components';
+import ReactDOM from 'react-dom';
+import { WorldMap } from './components';
 
-const dummyTodos = [
-  { id: 0, isDone: true,  text: 'make components' },
-  { id: 1, isDone: false, text: 'design actions' },
-  { id: 2, isDone: false, text: 'implement reducer' },
-  { id: 3, isDone: false, text: 'connect components' }
-];
+import { List, Map } from 'immutable';
 
-render(
-  <TodoList todos={dummyTodos} />,
-  document.getElementById('app')
+const continents = List([
+  Map({id: 0, name: 'Asia', area: 44579000}),
+  Map({id: 1, name: 'Africa', area: 30065000}),
+  Map({id: 2, name: 'North America', area: 24256000}),
+  // Map({id: 3, name: 'South America', area: 17819000}),
+  // Map({id: 4, name: 'Antarctica', area: 13209000}),
+  // Map({id: 5, name: 'Europe', area: 9938000}),
+  // Map({id: 6, name: 'Australia + Oceania', area: 2968000})
+]);
+
+ReactDOM.render(
+  <WorldMap continents={continents} />, document.getElementById('app')
 );
