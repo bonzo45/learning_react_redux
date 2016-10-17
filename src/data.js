@@ -7,7 +7,19 @@
 
 import { Map, List } from 'immutable';
 
-const countryData = List([
+export const continents = List([
+  'North America',
+  'South America',
+  'Europe',
+  'Africa',
+  'Asia',
+  'Australia',
+  'Antarctica',
+  'Ocean',
+  'All'
+]);
+
+export const countries = List([
   Map({ id: 2, name: 'Pacific Ocean', continent: 'Ocean', area: 155557000 }),
   Map({ id: 3, name: 'Atlantic Ocean', continent: 'Ocean', area: 76762000 }),
   Map({ id: 4, name: 'Indian Ocean', continent: 'Ocean', area: 68556000 }),
@@ -274,5 +286,3 @@ const countryData = List([
   Map({ id: 266, name: 'Tromelin Island', continent: 'Africa', area: 1 }),
   Map({ id: 267, name: 'Holy See (Vatican City)', continent: 'Europe', area: 0.44 }),
 ]);
-
-export default countryData;

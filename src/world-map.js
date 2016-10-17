@@ -82,7 +82,7 @@ class WorldMap extends React.Component {
     let maxHeight = (parentHeight === undefined) ? 100 : parentHeight;
 
     let filteredCountries;
-    if (filter === 'ALL') {
+    if (filter === 'All') {
       filteredCountries = countries;
     }
     else {

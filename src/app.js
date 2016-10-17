@@ -6,12 +6,14 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Map } from 'immutable';
 
-import data from './data';
+import { countries, continents } from './data';
 import WorldMap from './world-map';
+import ContinentFilters from './continent-filters';
 
 const init = Map({
   filter: 'Ocean',
-  countries: data
+  countries: countries,
+  continents: continents
 });
 
 function reducer(state = init, action) {
@@ -19,8 +21,7 @@ function reducer(state = init, action) {
     case 'REMOVE_COUNTRY':
       return state.set('countries', state.get('countries').filter((country) => country.get('id') !== action.id));
     case 'FILTER_CONTINENT':
-      return 
-        state.set('filter', action.filter);
+      return state.set('filter', action.name);
     default:
       return state;
   }
@@ -35,4 +36,13 @@ ReactDOM.render(
     </Provider>
   )
   , document.getElementById('app')
+);
+
+ReactDOM.render(
+  (
+    <Provider store={store}>
+      <ContinentFilters />
+    </Provider>
+  )
+  , document.getElementById('bar')
 );

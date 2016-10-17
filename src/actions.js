@@ -4,3 +4,10 @@ export function removeCountry(id) {
     id: id
   };
 };
+
+export function filterByContinent(name) {
+  return {
+    type: 'FILTER_CONTINENT',
+    name: name
+  }
+}
