@@ -2,10 +2,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { WorldMapWrapper } from './components';
 import { List, Map } from 'immutable';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+
+import WorldMap from './world-map';
 
 const init = List([
   Map({id: 0, name: 'Asia',                 area: 44579000}),
@@ -19,8 +20,8 @@ const init = List([
 
 function reducer(state = init, action) {
   switch (action.type) {
-    case 'POP_COUNTRY':
-      return state.shift();
+    case 'REMOVE_COUNTRY':
+      return state.filter((country) => country.get('id') !== action.id);
     default:
       return state;
   }
@@ -31,7 +32,7 @@ const store = createStore(reducer);
 ReactDOM.render(
   (
     <Provider store={store}>
-      <WorldMapWrapper />
+      <WorldMap />
     </Provider>
   )
   , document.getElementById('app')
