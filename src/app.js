@@ -2,11 +2,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { WorldMap } from './components';
-
+import { WorldMapWrapper } from './components';
 import { List, Map } from 'immutable';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
-const continents = List([
+const init = List([
   Map({id: 0, name: 'Asia',                 area: 44579000}),
   Map({id: 1, name: 'Africa',               area: 30065000}),
   Map({id: 2, name: 'North America',        area: 24256000}),
@@ -16,6 +17,22 @@ const continents = List([
   Map({id: 6, name: 'Australia + Oceania',  area:  2968000})
 ]);
 
+function reducer(state = init, action) {
+  switch (action.type) {
+    case 'POP_COUNTRY':
+      return state.shift();
+    default:
+      return state;
+  }
+}
+
+const store = createStore(reducer);
+
 ReactDOM.render(
-  <WorldMap countries={continents} />, document.getElementById('app')
+  (
+    <Provider store={store}>
+      <WorldMapWrapper />
+    </Provider>
+  )
+  , document.getElementById('app')
 );
