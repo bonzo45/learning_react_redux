@@ -13,7 +13,7 @@ class ContinentFilters extends React.Component {
     const { continents, setFilter } = this.props;
     const clickMe = name => event => setFilter(name);
     return (
-      <div>
+      <div className="filter_list">Filter: 
         {
           continents.map(continent => <ContinentFilter name={continent} onClick={clickMe(continent)} />)
         }

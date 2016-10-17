@@ -79,7 +79,7 @@ class WorldMap extends React.Component {
   render() {
     const { countries, filter, parentWidth, parentHeight, removeCountry } = this.props;
     let maxWidth = (parentWidth === undefined) ? 100 : parentWidth;
-    let maxHeight = (parentHeight === undefined) ? 100 : parentHeight;
+    let maxHeight = (parentHeight === undefined) ? 90 : parentHeight;
 
     let filteredCountries;
     if (filter === 'All') {
